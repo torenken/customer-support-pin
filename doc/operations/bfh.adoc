@@ -1,0 +1,233 @@
+:checkedbox: pass:normal[{startsb}&#10004;{endsb}]
+:uncheckedbox: pass:normal[{startsb}&#10007;{endsb}]
+
+:icons: font
+
+:toc-title: Inhaltsverzeichnis
+:toc:
+:toclevels: 3
+
+:caution-caption: Achtung
+:important-caption: Wichtig
+:note-caption: Hinweis
+:tip-caption: Tip
+:warning-caption: Warnung
+
+:appendix-caption: Anhang
+:example-caption: Beispiel
+:figure-caption: Abbildung
+:table-caption: Tabelle
+
+:imagesdir: ./images
+
+:numbered:
+
+= Betriebsführungshandbuch
+Vorname Nachname <vorname.nachname@ewe.de>, Vorname2 Nachname2 <vorname2.nachname2@ewe.de>, ...
+
+.Änderungshistorie
+|===
+| Version | Thema | Autor | Datum
+
+| X.Y1
+|Dokument erstellt
+|<Vorname> <Nachname>, <Organisation>
+|DD.MM.YYYY
+
+| X.Y2
+| Schnittstelle X hinzugefügt
+|<Vorname> <Nachname>, <Organisation>
+|DD.MM.YYYY
+|===
+
+== Allgemeines
+=== Organisatorisches
+* Diese Vorlage findet Anwendung für Applikationen, die im Sinne einer Serverless Architektur implementiert werden.
+* Das Betriebsführungshandbuch (BFH) soll in AsciiDoc erstellt werden. Ein Betriebsmanager erstellt eine Offline-Kopie
+der finalen Version für das EWE TEL IT Betriebsmanagement.
+* Das BFH soll die Produktivumgebung dokumentieren. Abweichungen der Test-/Konsolidierungsumgebung zur Produktivumgebung
+sind ggf. direkt im jeweiligen Kapitel herausstellen.
+* Ein weiteres Ziel des Dokuments ist der Verweis auf weiterführende Dokumentationen.
+
+=== Kritikalität
+<Einschätzung der Business-Kritikalität der Anwendung, aus der sich auch die Betriebszeiten/Servicezeiten/SLA ergeben.
+Hier kann auch auf die Business-Domäne Bezug genommen werden.>
+
+<Beispiel: Servicezeiten>
+<Verfügbarkeitsklasse, Betriebszeit, Sonderbetriebszeit, Servicezeiten, Wiederanlaufzeit, ...>
+|===
+|Auswahl|Servicezeit|Begründung
+
+|{checkedbox}
+|24x7 (Mo-So 00:00-24:00)
+| ...
+
+|{uncheckedbox}
+|16x6 (Mo-Sa 06:00-22:00)
+| ...
+
+|{uncheckedbox}
+|10x5 (Mo-Fr 08:00-18:00)
+| ...
+|===
+
+=== Ansprechpartner
+
+
+==== RACI
+Das RACI wird im ITIL Umfeld häufig benutzt, um Rollen zu definieren.
+In RACI stehen die einzelnen Buchstaben für:
+
+- R = Responsible (zuständig, führt aus)
+- A = Accountable (verantwortlich, Entscheider (bspw. Budget))
+- C = Consulted (konsultieren vor einer Entscheidung)
+- I = Informed (informieren nach einer Entscheidung)
+
+Z.B.: Der Datenschutzbeauftragte berät Fachabteilungen und Projekt in im Bereich Datenschutz und muss bei Verstößen informiert werden und bekommt deshalb CI.
+
+Organisation
+|===
+| |Organisation|Ansprechpartner + Kontakt|Vertretung|RACI|Bereitschaft (Telefon o.ä.)
+
+|Team
+|
+|
+|
+|R
+|
+
+|Applikationsbetrieb
+|
+|
+|
+|R
+|
+
+|Informationseigner FB
+|
+|
+|
+|RAI
+|
+
+|Cloud Account Administration
+| BTC
+| BTC Cloud Team
+|
+|RC
+|
+//|2nd Level
+//|
+//|
+//|
+//|C
+//|
+
+//|3rd Level
+//| z.B.: Hersteller
+//|
+//|
+//|C
+//|
+
+|Account Verantwortlicher Cloud
+| EWE TEL
+| ITBM
+|
+|RAC
+|0441/80002825
+
+|Account Administration on Prem, bspw.
+Microsoft CRM
+| BITS
+| bits koznonsap
+|
+|RC
+|
+
+|Informationssicherheit
+| EWE TEL
+|Götz Görling
+|informationssicherheit-markt@ewe.de
+|CI
+|
+
+|Datenschutz / Datenschutzbeauftragter
+| EWE TEL
+|Ingmar Schmidt
+|datenschutz@ewetel.de
+|CI
+|
+
+|===
+
+
+
+=== Repository zur Versionsverwaltung
+Das Projekt liegt in <Name der Sourcecode-Verwaltung> vor:
+`git clone codecommit::eu-central-1://ewetel-service@<project-name>`
+
+== Aufgabenkurzbeschreibung
+<Kurze Beschreibung der Funktionalität der Anwendung und Einordnung in den fachlichen Kontext.>
+
+<Eine Verlinkung bzw. ein Include (doc/arc/index.adoc) auf die Architekturdokumentation ist hier empfohlen.>
+
+== Schnittstellen-/Systemdiagramm
+<Folgende Informationen sollten aus dem Diagramm (Kontextabgrenzung) hervorgehen:
+
+* Kommunikationsbeziehungen (z.B. URL+Port für Firewallfreischaltungen)
+* Applikationen zu denen Schnittstellen bestehen
+* Infrastrukturanbieter im Kontext (z.B. AWS)
+* Datenbank inkl. Schemaname und wesentlicher Tabellen
+* Webservice-URLs und UI-URLs
+* Verteilungssicht>
+
+<Eine Verlinkung bzw. ein Include (doc/arc/index.adoc) auf die Architekturdokumentation ist hier empfohlen.>
+
+== Monitoring
+<Technisches Monitoring, fachliches Monitoring, Überwachungstätigkeiten, Monitoringkonzept. Wie werden die
+Serverless Komponenten überwacht?>
+
+== Ausfallszenarien
+<Beschreibung von durchgespielten bzw. bekannten Ausfallszenarien, wie z.B. Datenbankausfall, Netzwerkstörung.>
+
+<Beschreibung von Grenzfallbetrachtungen unter Stresstest und Lasttest, Betrachtung von Systemzugängen, ...>
+
+<Bekannte Fehlerfälle aus dem Betrieb, diese können auch hier verlinkt werden.>
+
+== Accessmanagement
+<Beschreibung des Berechtigungskonzeptes und der Anwender (Userliste).>
+<Beschreibung des Umganges mit Zertifikaten, API Keys, Passwörtern, etc.>
+
+== Deployment
+<Verweis bzw. Verlinkung auf Pipeline, welche vor Produktivnahme die Qualität durch Quality Gates (z.B. Freigabe)
+sicherstellt.>
+<Wenn erforderlich: Beschreibung von Tätigkeiten, die im Kontext des Approval-Schrittes erforderlich sind.>
+
+== Regelmäßige Tätigkeiten
+<Hier sind regelmäßige, betriebsnahe Tätigkeiten dokumentiert, z.B. Backups (Backup-Intervall, Daten, Vorhaltezeit),
+Audits, Zertifikat/Key-Rotation usw.>
+
+== Informationssicherheit
+<Verlinkung/ Bezug auf Schutzbedarfsanalyse (Ermittlung_Schutzbedarf, SBA_Beipackzettel), Schutzwürdige Daten und
+Informationssicherheit(Mitarbeiterhandbuch Informationssicherheit).
+
+<Einordnung der Auswirkung/ Risiken für das Unternehmen im Hinblick auf Integrität, Vertraulichkeit und Verfügbarkeit
+von Daten. Die Einordnung sollte in Abstimmung mit Auftraggeber, DSB/ISB etc. vorgenommen werden.>
+
+<Beschreibung von Konsequenzen für den Betrieb, wenn relevant: Verwendung von wiederhergestellten Daten, Dokumentationspflichten,
+drohende Strafen>
+
+== Fulfilment-Management
+=== SIS-Artikel
+<Unter anderem müssen Punkte wie:
+
+* Mehrfachbestellbarkeit
+* Geschäftsfälle (z.B. Neubestellung, Umzug, Organisation wechseln, Kündigung)
+* Pflichtattribute
+* SMS-Arbeitsgruppe
+
+dokumentiert werden.>
+
+=== Verantwortlichkeiten im Fulfilment-Prozess
+<Zuständigkeiten bspw. für das Einrichten oder Löschen...>
