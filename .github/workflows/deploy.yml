@@ -166,6 +166,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
+    environment: production
     needs:
       - Build-Build
       - Assets-FileAsset3
