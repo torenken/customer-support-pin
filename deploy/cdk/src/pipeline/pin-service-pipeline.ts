@@ -63,7 +63,11 @@ export class PinServicePipeline extends Stack {
         region: 'eu-central-1',
       },
     });
-    pipeline.addStage(prodStage);
+    pipeline.addStageWithGitHubOptions(prodStage, {
+      gitHubEnvironment: {
+        name: 'production',
+      },
+    });
 
     pipeline.buildPipeline();
   }
